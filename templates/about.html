@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+   
+    <h2>{{ page_title }}</h2>
+    <p>
+        Nashville is an American musical drama television series created by Academy Award winner Callie Khouri and produced by R. J. Cutler, Callie Khouri and Steve Buchanan. The series stars Connie Britton and Hayden Panettiere. It premiered on October 10, 2012 on ABC and ended on May 25, 2016. It was officially cancelled by ABC on May 12, 2016.
+
+        On 10 June 2016, it was confirmed that CMT and Hulu had picked up the show for a fifth season following a fan petition being launched.  Prior to its cancellation, it was announced that Marshall Herskovitz and Ed Zwick would replace Dee Johnson as showrunners if the show was renewed.  In April 2017, it was renewed for a sixth season.  On November 17, 2017, it was announced that this would be the final season.
+    </p>
+    <br>
+    
+    {% for member in company %}
+    
+    
+    
+    <br>
+    <div class="row featurette">
+       
+       {% if loop.index % 2 !=0 %}
+       
+        <div class="col-md-7">
+            <h3>{{ member.name }}</h3>
+            <p>
+                {{ member.bio }}
+            </p>
+        </div>
+        <div class="col-md-5">
+            <img class="featurette-image img-responsive" src="{{ member.image_source }}">
+        </div>
+        {% else %}
+        <div class="col-md-5">
+            <img class="featurette-image img-responsive" src="{{ member.image_source }}">
+        </div>
+        <div class="col-md-7">
+            <h3>{{ loop.index }} {{ member.name }}</h3>
+            <p>
+                {{ member.bio }}
+            </p>
+        </div>
+        
+        {% endif %}
+        
+    </div>
+    <br>
+    
+    {% endfor %}
+{% endblock %}
